@@ -1,0 +1,47 @@
+{% extends 'layout.html'%}
+
+{% block content %}
+
+{% load static %}
+
+<header class="row bg-black">
+    <div class="col-md-4">
+        <img src=" {% static 'portfolio_data/Sebastian_Arbelaez_Meneses.jpg' %}" class="rounded-circle" width="200" alt="">
+    </div>
+    <div class="col-md-8 my-auto">
+        <h1>I'm <strong>Sebastian Arbelaez</strong></h1>
+        <h2>full stack <strong>developer</strong></h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere eaque tenetur, incidunt est ut neque, et architecto velit dicta delectus, asperiores fugiat fuga nobis provident laborum tempore. Distinctio, eveniet quis?
+        Ipsa necessitatibus a quos distinctio dolore autem soluta sed nesciunt voluptate, cum in nisi obcaecati consequatur ex minima earum repellat error id atque mollitia quasi tempore ipsam sint. Magnam, fugit.
+        Tempore voluptates, architecto modi, laborum quos, eum quo nihil amet ducimus fugiat quaerat at sed natus! Sit dolorem id necessitatibus magni. Nisi, deleniti. Exercitationem in sint illo labore similique deserunt.
+        sequuntur esse ex omnis provident quo voluptates obcaecati aliquam dolor! Voluptatesnam excepturi officiis iste, mollitia sapiente. Harum omnis, neque, quasi, consectetur ab accusantium culpa commodi perspiciatis accusamus laboriosam ipsa molestiae debitis dolore!</p>
+        <a href="portfolio_data/sebastianarbelaez2314.pdf" class="btn btn-primary btn-lg rounded-0 my-3">Download CV</a>
+    </div>
+</header>
+
+<div class="row my-4 text-center">
+    <h3>My Proyects</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quos, soluta ipsa eos asperiores temporibus</p>
+    
+    {% for project in projects %}
+    <div class="col-md-4 p-4">
+       
+        <div class="card bg-black card-project">
+            <img class="card-img-top" height="250" src="{{project.image.url}}" alt={{project.title}}>
+            <div class=-"card-body">
+                <h3>{{project.title | truncatechars:25}}</h3>
+                <p>{{project.description| truncatechars:20}}</p>
+                
+                {% if  project.url%}
+                    <a class="btn btn-light rounded-0 btn-sm" target="_blank" href="{{project.image.url}}">Link:{{project.title}}</a>
+                {% endif %}
+            </div>
+       </div> 
+       
+    </div>
+    
+    {% endfor %}
+    {% endblock %}
+</div>
+
+
